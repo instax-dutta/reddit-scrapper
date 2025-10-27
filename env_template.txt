@@ -1,0 +1,30 @@
+# Reddit API Credentials
+# Get these from https://www.reddit.com/prefs/apps
+REDDIT_CLIENT_ID=your_client_id_here
+REDDIT_CLIENT_SECRET=your_client_secret_here
+REDDIT_USER_AGENT=RedditScraper/1.0 by your_username
+
+# Optional: Reddit username and password (for authenticated requests)
+REDDIT_USERNAME=your_username
+REDDIT_PASSWORD=your_password
+
+# AI Configuration - Multi-Mistral Model Support
+# Uses multiple Mistral models to avoid model-specific rate limits
+
+# Mistral AI Configuration
+MISTRAL_API_KEY=your_mistral_api_key_here
+USE_AI_ANALYSIS=true
+
+# Note: The scraper will automatically use these Mistral models in order:
+# 1. mistral-large-latest (most capable)
+# 2. mistral-medium-latest (balanced)
+# 3. mistral-small-latest (fast)
+# 4. open-mistral-7b (open source)
+
+# Auto-Reply Configuration
+# Enable automatic reply posting to Reddit posts
+ENABLE_AUTO_REPLY=true
+REPLY_DELAY_MIN=30
+REPLY_DELAY_MAX=120
+MAX_REPLIES_PER_SESSION=100
+REPLY_DRY_RUN=false

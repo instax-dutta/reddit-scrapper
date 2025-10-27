@@ -1,0 +1,79 @@
+================================================================================
+REDDIT CLIENT LEADS - AI ENHANCED ANALYSIS
+================================================================================
+Generated on: 2024-01-15 14:30:25
+Total leads found: 47
+AI analysis enabled: true
+================================================================================
+
+LEAD #1
+----------------------------------------
+What they want: Digital Marketing, SEO Optimization, Google Ads Management
+When it was posted: 2024-01-14 09:15:30
+Username/name of the poster: startup_founder_2024
+Link to the post: https://reddit.com/r/entrepreneur/comments/abc123/need_help_with_google_ads_campaign/
+Other contact details: Email: john@mystartup.com; Website: https://mystartup.com; Company: MyStartup Inc; Location: San Francisco, CA
+Budget indication: $5,000 - $10,000
+Urgency level: high
+Business type: startup
+Key insights: Genuine business need; Has budget allocated; Timeline is urgent; Decision maker identified
+Recommended approach: Direct outreach with case studies and immediate consultation offer
+Post engagement: 23 upvotes, 15 comments
+Lead quality score: 87/100
+AI Summary: High-potential startup client seeking comprehensive digital marketing services. Has allocated budget and urgent timeline. Decision maker is accessible and business shows strong growth potential.
+
+================================================================================
+
+LEAD #2
+----------------------------------------
+What they want: Website Development, Custom E-commerce Website, Mobile Responsive Design
+When it was posted: 2024-01-13 16:45:12
+Username/name of the poster: smallbiz_owner
+Link to the post: https://reddit.com/r/smallbusiness/comments/def456/looking_for_web_developer_for_ecommerce_store/
+Other contact details: Email: sarah@smallbiz.com; Phone: (555) 123-4567; Company: SmallBiz Solutions; Location: Austin, TX
+Budget indication: $3,000 - $5,000
+Urgency level: medium
+Business type: small_business
+Key insights: Established business; Clear requirements; Budget confirmed; Professional communication
+Recommended approach: Portfolio showcase with similar e-commerce projects
+Post engagement: 18 upvotes, 8 comments
+Lead quality score: 78/100
+AI Summary: Established small business owner seeking professional e-commerce website development. Clear requirements and confirmed budget. Professional communication style indicates serious intent.
+
+================================================================================
+
+LEAD #3
+----------------------------------------
+----------------------------------------
+What they want: Business Automation, Workflow Automation, API Integration
+When it was posted: 2024-01-12 11:20:45
+Username/name of the poster: tech_entrepreneur
+Link to the post: https://reddit.com/r/automation/comments/ghi789/need_help_automating_manual_processes/
+Other contact details: Email: mike@techcorp.com; Website: https://techcorp.com; Company: TechCorp Solutions; Location: New York, NY
+Budget indication: $2,000 - $4,000
+Urgency level: medium
+Business type: established
+Key insights: Technical background; Specific automation needs; ROI-focused; Growth stage company
+Recommended approach: Technical consultation with automation roadmap
+Post engagement: 31 upvotes, 22 comments
+Lead quality score: 82/100
+AI Summary: Technical entrepreneur with established company seeking workflow automation solutions. Strong technical background and ROI-focused approach. Company in growth stage with clear automation needs.
+
+================================================================================
+
+SUMMARY STATISTICS
+----------------------------------------
+Services needed breakdown:
+  • Digital Marketing: 23 leads
+  • Website Development: 18 leads
+  • Business Automation: 6 leads
+
+High-priority leads (score > 70): 12
+
+Leads with contact information: 28
+
+Leads analyzed by AI: 47
+
+================================================================================
+END OF REPORT
+================================================================================
