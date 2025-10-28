@@ -6,6 +6,12 @@ output/
 *.csv
 *.xlsx
 
+# Local database
+data/
+*.db
+*.sqlite
+*.sqlite3
+
 # Log files
 *.log
 logs/
@@ -39,6 +45,7 @@ env/
 ENV/
 env.bak/
 venv.bak/
+.venv/
 
 # IDE
 .vscode/

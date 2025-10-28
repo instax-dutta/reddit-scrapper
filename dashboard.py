@@ -9,6 +9,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
+import sqlite3
 import glob
 from datetime import datetime, timedelta
 import json
@@ -58,6 +59,7 @@ class RedditScraperDashboard:
     def __init__(self):
         self.output_dir = "output"
         self.data_files = self._get_data_files()
+        self.db_path = os.path.join("data", "app.db")
         
     def _get_data_files(self):
         """Get all CSV and TXT files from output directory"""
@@ -154,10 +156,28 @@ class RedditScraperDashboard:
             return None
     
     def get_combined_data(self):
-        """Get combined data from all sessions"""
+        """Get combined data from DB if available, else from files"""
+        if os.path.exists(self.db_path):
+            try:
+                conn = sqlite3.connect(self.db_path)
+                leads_df = pd.read_sql_query("SELECT * FROM leads", conn)
+                sessions_df = pd.read_sql_query("SELECT * FROM sessions", conn)
+                # Convert types
+                if 'session_date' in sessions_df.columns:
+                    sessions_df['session_date'] = pd.to_datetime(sessions_df['session_date'])
+                if 'session_date' in leads_df.columns:
+                    leads_df['session_date'] = pd.to_datetime(leads_df['session_date'])
+                # Ensure consistent session_id column for sessions
+                if 'session_id' not in sessions_df.columns and 'id' in sessions_df.columns:
+                    sessions_df['session_id'] = sessions_df['id']
+                conn.close()
+                return leads_df, sessions_df
+            except Exception as e:
+                st.warning(f"DB read failed, falling back to files: {e}")
+
+        # Fallback to file-based load
         all_data = []
         session_summaries = []
-        
         for filepath in self.data_files:
             if filepath.endswith('.csv'):
                 df = self.load_csv_data(filepath)
@@ -167,17 +187,8 @@ class RedditScraperDashboard:
                 summary = self.load_txt_data(filepath)
                 if summary:
                     session_summaries.append(summary)
-        
-        if all_data:
-            combined_df = pd.concat(all_data, ignore_index=True)
-        else:
-            combined_df = pd.DataFrame()
-        
-        if session_summaries:
-            summary_df = pd.DataFrame(session_summaries)
-        else:
-            summary_df = pd.DataFrame()
-        
+        combined_df = pd.concat(all_data, ignore_index=True) if all_data else pd.DataFrame()
+        summary_df = pd.DataFrame(session_summaries) if session_summaries else pd.DataFrame()
         return combined_df, summary_df
     
     def render_header(self):

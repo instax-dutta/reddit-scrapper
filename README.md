@@ -79,10 +79,55 @@ A powerful Python tool to discover potential clients on **Reddit** and generate 
 
 4. **Configure API credentials** (see Configuration section below)
 
-5. **Launch the intuitive interface**:
+5. (Optional) **Launch the older interactive launcher**:
    ```bash
    python launcher.py
    ```
+   For direct execution, prefer:
+   ```bash
+   python run.py
+   ```
+
+## 📊 Dashboard (Visualization & Analytics)
+
+An interactive Streamlit dashboard is included to explore sessions, leads, trends, and reply metrics.
+
+### Launch
+
+```bash
+source .venv/bin/activate
+python launch_dashboard.py
+```
+
+Then open `http://localhost:8501` in your browser.
+
+### Features
+- Overview KPIs: total sessions, leads, high‑priority leads, replies, reply rate
+- Performance trends over time (leads, priority, replies, rate)
+- Lead analysis by service category, score distributions, subreddit performance
+- Detailed, filterable lead table and session filters
+
+### Data Sources
+- Reads from SQLite by default: `data/app.db`
+- Falls back to `output/*.csv` and `output/*.txt` if the DB is missing
+
+## 🗄️ Database (SQLite)
+
+Lightweight SQLite is used for reliable dashboard performance.
+
+Schema (auto‑created):
+- `sessions(id, session_date, total_leads, high_priority_leads, leads_with_contact, replies_posted, ai_analysis_enabled)`
+- `leads(id, session_id, title, content, author, subreddit, url, score, comments, service_category, client_score, decision_maker, contact_readiness, urgency_level, engagement_score, engagement_level, lead_quality_score, lead_priority, created_utc)`
+- `replies(id, session_id, post_id, subreddit, author, reply_text, created_at)`
+
+### Import historical data into DB
+
+```bash
+source .venv/bin/activate
+python import_to_db.py
+```
+
+This parses `output/*.csv` and `output/*.txt` and populates `data/app.db`.
 
 ## 🔧 Configuration
 
@@ -292,6 +337,19 @@ The relevance score is calculated based on:
 - No private messages or user data accessed
 - Contact information extracted only from public posts
 
+## ⚙️ Configuration Notes
+
+- Multi‑model Mistral AI rotation is configured in `config.py` (`MISTRAL_MODELS`).
+- Auto‑reply safety: 30–120s delay between replies, 24h per‑user cooldown, non‑promotional templates.
+- Max replies per session configurable via `.env` (`MAX_REPLIES_PER_SESSION`, default 100).
+
+## 🧰 Scripts Quick Reference
+
+- Run scraper: `python run.py`
+- Launch dashboard: `python launch_dashboard.py`
+- Import to DB: `python import_to_db.py`
+- Process files cache: `python data_processor.py`
+
 ## 🛠️ Troubleshooting
 
 ### Common Issues
@@ -310,6 +368,11 @@ The relevance score is calculated based on:
    - Increase delays between requests
    - Reduce the number of posts per subreddit
    - Use authenticated requests (username/password)
+
+4. **Dashboard/DB Errors**
+   - Rebuild DB from outputs: `python import_to_db.py`
+   - Free dashboard port 8501 (macOS/Linux): `lsof -ti tcp:8501 | xargs kill -9`
+   - Reinstall UI deps: `pip install -U streamlit plotly pyarrow jsonschema`
 
 ### Getting Help
 
